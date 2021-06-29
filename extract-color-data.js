@@ -30,11 +30,14 @@ async function start() {
         var colors = await getColors(imgs[i]);
         totalColors.push({
             img: imgs[i],
-            colors: colors
+            colors_r: colors[0][0],
+            colors_g: colors[0][1],
+            colors_b: colors[0][2],
         });
     }
 
     console.log("TotalColors:");
+    console.table(totalColors);
     console.table(totalColors[0].colors);
     console.table(totalColors[1].colors);
 
