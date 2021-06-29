@@ -16,8 +16,8 @@ var a;
 
 async function start() {
 
-    var imgs = ["D:\\ONE DRIVE - PESSOAL\\OneDrive\\Site_Doutoramento\\Ficheiros-Base\\_Fotos AT_APP\\AT_20180907_IMG_6036.JPG",
-                "D:\\ONE DRIVE - PESSOAL\\OneDrive\\Site_Doutoramento\\Ficheiros-Base\\_Fotos AT_APP\\AT_20180907_IMG_5974.JPG"];
+    var imgs = await getImageName();
+
     var totalColors = [];
 
     for (let i = 0; i < imgs.length; i++) {
@@ -35,6 +35,14 @@ async function start() {
 
     //SAVE
 
+}
+
+async function getImageName() {
+
+    var imageNames = ["D:\\ONE DRIVE - PESSOAL\\OneDrive\\Site_Doutoramento\\Ficheiros-Base\\_Fotos AT_APP\\AT_20180907_IMG_6036.JPG",
+    "D:\\ONE DRIVE - PESSOAL\\OneDrive\\Site_Doutoramento\\Ficheiros-Base\\_Fotos AT_APP\\AT_20180907_IMG_5974.JPG"];
+
+    return imageNames;
 }
 
 async function getColors(img) {
