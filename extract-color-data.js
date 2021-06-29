@@ -23,9 +23,9 @@ async function start() {
     var imgs = await getImagesName();
 
     var totalColors = [];
-    console.table(imgs);
+    //console.table(imgs);
 
-    for (let i = 0; i < imgs.length; i++) {
+    for (let i = 0; i < 5; i++) {
 
         var colors = await getColors(imgs[i]);
         totalColors.push({
@@ -49,10 +49,10 @@ async function getImagesName() {
 
     fs.readdirSync(directory).forEach(file => {
         if (fs.lstatSync(path.resolve(directory, file)).isDirectory()) {
-          console.log('Directory: ' + file);
+          //console.log('Directory: ' + file);
         } else {
-          console.log('File: ' + file);
-          img1.push(file);
+          //console.log('File: ' + file);
+          img1.push(path.resolve(directory, file));
         }
       });
 
