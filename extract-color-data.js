@@ -1,6 +1,7 @@
 /*
     -- base example using node https://lokeshdhakar.com/projects/color-thief/ 
     -- second test with all color
+    -- 
 */
 
 const ColorThief = require('colorthief');
@@ -15,7 +16,8 @@ var a;
 
 async function start() {
 
-    var imgs = ["D:\\ONE DRIVE - PESSOAL\\OneDrive\\Site_Doutoramento\\Ficheiros-Base\\_Fotos AT_APP\\AT_20180907_IMG_5974.JPG"];
+    var imgs = ["D:\\ONE DRIVE - PESSOAL\\OneDrive\\Site_Doutoramento\\Ficheiros-Base\\_Fotos AT_APP\\AT_20180907_IMG_6036.JPG",
+                "D:\\ONE DRIVE - PESSOAL\\OneDrive\\Site_Doutoramento\\Ficheiros-Base\\_Fotos AT_APP\\AT_20180907_IMG_5974.JPG"];
     var totalColors = [];
 
     for (let i = 0; i < imgs.length; i++) {
@@ -29,6 +31,7 @@ async function start() {
 
     console.log("TotalColors:");
     console.table(totalColors[0].colors);
+    console.table(totalColors[1].colors);
 
     //SAVE
 
