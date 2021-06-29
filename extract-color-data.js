@@ -23,7 +23,7 @@ async function start() {
     var imgs = await getImagesName();
 
     var totalColors = [];
-    //console.table(imgs);
+    console.table(imgs);
 
     for (let i = 0; i < 5; i++) {
 
@@ -55,7 +55,10 @@ async function getImagesName() {
           //console.log('Directory: ' + file);
         } else {
           //console.log('File: ' + file);
-          img1.push(path.resolve(directory, file));
+          //add only images
+          if (file.substring(file.length-4).toUpperCase() == ".JPG") {
+            img1.push(path.resolve(directory, file));
+          }
         }
       });
 
