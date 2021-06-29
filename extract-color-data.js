@@ -8,6 +8,10 @@ const ColorThief = require('colorthief');
 
 var resolve = require('resolve');
 
+const directory = 'D:\\ONE DRIVE - PESSOAL\\OneDrive\\Site_Doutoramento\\Ficheiros-Base\\_Fotos AT_APP\\';
+const path = require('path');
+const fs = require('fs')
+
 //const img = resolve(process.cwd(), 'rainbow.jpg');
 //const img = 'rainbow.jpg'
 //console.log(img);
@@ -16,9 +20,10 @@ var a;
 
 async function start() {
 
-    var imgs = await getImageName();
+    var imgs = await getImagesName();
 
     var totalColors = [];
+    console.table(imgs);
 
     for (let i = 0; i < imgs.length; i++) {
 
@@ -37,12 +42,21 @@ async function start() {
 
 }
 
-async function getImageName() {
+async function getImagesName() {
 
-    var imageNames = ["D:\\ONE DRIVE - PESSOAL\\OneDrive\\Site_Doutoramento\\Ficheiros-Base\\_Fotos AT_APP\\AT_20180907_IMG_6036.JPG",
-    "D:\\ONE DRIVE - PESSOAL\\OneDrive\\Site_Doutoramento\\Ficheiros-Base\\_Fotos AT_APP\\AT_20180907_IMG_5974.JPG"];
+    // example from https://stackabuse.com/node-list-files-in-a-directory
+    var img1 = [];
 
-    return imageNames;
+    fs.readdirSync(directory).forEach(file => {
+        if (fs.lstatSync(path.resolve(directory, file)).isDirectory()) {
+          console.log('Directory: ' + file);
+        } else {
+          console.log('File: ' + file);
+          img1.push(file);
+        }
+      });
+
+    return img1;
 }
 
 async function getColors(img) {
